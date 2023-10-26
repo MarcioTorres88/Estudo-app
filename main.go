@@ -1,15 +1,12 @@
 package main
 
 import( 
+routes "api/api/routes"
 "github.com/gin-gonic/gin"
-"net/http"
+
 )
 func main()  {
-    app := gin.Default()
-    app.GET("/v1",func(ctx *gin.Context){
-    ctx.JSON(http.StatusOK,gin.H{
-        "ok":true,
-    }) 
-    })
+   app := gin.Default()
+   routes.AppRoutes(app)
     app.Run("localhost:3001")
 }
